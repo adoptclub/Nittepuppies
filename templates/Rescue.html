@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {%load static%}
+    <title>Resue Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="static/form.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="testbox">
+        
+            <form action="feedback" method="POST">
+            {% csrf_token %}
+                <h1>Resue Form</h1>
+                <p>Please send us details about the incident you would like to report. Our Complaint Center will analyze
+                    your complaint and take the appropriate measures in order that the reported situation will not occur
+                    at any other time in the future. Click <a href="\">here</a> to go back</p>
+                <hr />
+                
+                <div class="item">
+                    <p>Name</p>
+                    <input type="text" name="firstname" placeholder="First" />
+                    <input type="text" name="lastname" placeholder="Last" />
+                </div>
+                <div class="item">
+                    <p>Email</p>
+                    <input type="text" name="email" />
+                </div>
+                <div class="item address">
+                    <p>Address</p>
+                    <div class="street">
+                        <input class="street-item" type="text" name="adress1" placeholder="Street address" />
+                        <input class="street-item" type="text" name="adress2" placeholder="Street addres line 2" />
+                        <input type="text" name="city" placeholder="City" />
+                        <input type="text" name="region" placeholder="Region" />
+                        <input type="text" name="code" placeholder="Postal / zip code" />
+                        <select name="country">
+                            <option value="">Country</option>
+                            <option value="1">India</option>
+                            <option value="2">Germany</option>
+                            <option value="3">France</option>
+                            <option value="4">Armenia</option>
+                            <option value="5">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Date of the reported incident</p>
+                    <input type="date" name="date_incident" required />
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="item location">
+                    <p>Incident location</p>
+                    <input type="text" name="location" />
+                </div>
+                <div class="item complaint-details">
+                    <p>Complaint details</p>
+                    <div class="complaint-details-item">
+                        <textarea type="text" name="details" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="item desired-outcome">
+                </div>
+
+                <div class="btn-block">
+                    <button type="submit" href="/">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

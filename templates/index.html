@@ -1,0 +1,227 @@
+<html>
+{% load static %}
+
+<head>
+    <title>NITTE PUPPIES</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="static/Logo.png">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+
+    <header class="header">
+        <nav class="navbar navbar-style">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a href=""><img class="logo" src="static/logo.png"></a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="micon">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <center>
+                            <h3 class="modal-title" id="exampleModalLongTitle">Contact</h3>
+                        </center>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            Email: <a href="">naiads</a>
+                            <br>
+                            Call Us at 99090909999
+                        </center>
+                    </div>
+
+                    <div class="modal-footer">
+                        <center>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+
+            <div class="col-sm-6 banner-info">
+
+                <h1 class="big-text">NITTE PUPPIES</h1>
+                <p style="font-size: 18px" class="text-dark">
+                    Adopt your favourite animals, shop the best quality toys and food for them in cheap. Get everything
+                    home delivered.
+                    Report any animal abuse, or injured and abondoned animals and get the details of nearest shelters
+                    and veterinary hospitals.
+
+                    Sign-up and get all the animal entertainment contents.
+                </p>
+
+            </div>
+
+            <div class="col-sm-6 banner-image">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel" data-slide-to="0"></li>
+                        <li data-target="#carousel" data-slide-to="1"></li>
+                        <li data-target="#carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="https://source.unsplash.com/600x400/?puppy" alt="Slide 1">
+                        </div>
+                        <div class="item">
+                            <img src="https://source.unsplash.com/600x400/?dog" alt="Slide 2">
+                        </div>
+                        <div class="item">
+                            <img src="https://source.unsplash.com/600x400/?cat" alt="Slide 3">
+                        </div>
+                    </div>
+                    <a href="#carousel" class="left carousel-control" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#carousel" class="right carousel-control" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+            <br>
+            <div class="container">
+
+            </div>
+            <div class="container">
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-danger" style="padding-left: 1%; font-size: large;">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+
+                <a class="btn btn-first" data-toggle="modal" data-target="#staticBackdrop"> Signin</a>
+                <a class="btn btn-second" href="SignUp"> Signup</a>
+            </div>
+
+
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <center>
+                            <div>
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+
+
+                                <img src="static/logo.png" height="180" width="180">
+
+
+                                <h5 class="text-primary" id="exampleModalLongTitle">Sign-In</h5>
+
+
+
+                            </div>
+                            <div class="modal-body center">
+                                <form action="handlesignin" method="POST">
+                                    {% csrf_token %}
+
+                                    <div class="form-group">
+                                        <label for="name">Username</label>
+
+                                        <input type="text" name="loginusername" class="form-control" id="username"
+                                            aria-describedby="name" style="width:50%;">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="loginpassword" class="form-control" id="password"
+                                            style="width: 50%;">
+                                    </div>
+                                    <div>
+                                        <small>Don't Have an Account.<a href="SignUp">
+                                                Sign-Up
+                                            </a> here</small>
+                                        {% if messages %}
+                                        {% for message in messages %}
+                                        <strong>
+                                            <p class="text-danger" style="padding-left: 1%; font-size: large;">
+                                                {{ message }}</p>
+                                        </strong>
+                                        {% endfor %}
+                                        {% endif %}
+                                        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                                            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                                            crossorigin="anonymous"></script>
+
+                                        <script text="javascript">
+                                            setTimeout(fade_out, 3000);
+                                            function fade_out() {
+                                                $(".messages").fadeOut().empty();
+                                            }
+                                            $(".post-form")[0].reset(); // this is to reset the form 
+                                        </script>
+                                    </div>
+                                    <hr>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                                </form>
+                            </div>
+                            <center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="social-icons">
+                    <p style="font-size: 20px" class="text-primary">
+                        Join Us
+                    </p>
+                    <a href="https://www.facebook.com"><img src="static/facebook.png"></a>
+                    <a href="https://www.instagram.com/adopt_puppies_/"><img src="static/insta.jpeg"></a>
+                    <a href="https://www.twitter.com"><img src="static/twitter.jpeg"></a>
+                    <a href="nittepuppies@gmail.com"><img src="static/mail.png"></a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+</body>
+
+</html>
